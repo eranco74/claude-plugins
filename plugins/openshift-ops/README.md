@@ -75,33 +75,23 @@ Deep dive into operator issues including:
 ### Install from GitHub
 
 ```bash
-# Install directly from GitHub (once published)
-claude plugin install eranco74/claude-plugins/openshift-ops
+# Install directly from GitHub
+/plugin marketplace add https://github.com/eranco74/claude-plugins
 
 # Or clone and install locally
 git clone https://github.com/eranco74/claude-plugins.git
-cd claude-plugins/openshift-ops
-claude plugin install .
-```
-
-### Install from Local Directory
-
-```bash
-# From the openshift-ops directory
-claude plugin install .
-
-# Or from Claude Code
-/plugin install /path/to/openshift-ops
+cd claude-plugins/plugins/openshift-ops
+/plugin install .
 ```
 
 ### Verify Installation
 
 ```bash
 # List installed plugins
-claude plugin list
+/plugin list
 
-# Check plugin status
-claude plugin info openshift-ops
+# View available skills
+/skill list
 ```
 
 ## Usage
@@ -130,11 +120,40 @@ Once installed, Claude will automatically invoke the appropriate skill when you 
 - "My operator installation is failing"
 - "How do I troubleshoot OLM subscription issues?"
 
+### Slash Commands
+
+The plugin provides convenient slash commands for common operations:
+
+- `/debug-cluster` - Debug and troubleshoot OpenShift cluster issues
+- `/upgrade-cluster` - Plan and execute OpenShift cluster upgrades
+- `/node-ops` - Manage OpenShift node operations and lifecycle
+- `/debug-operator` - Troubleshoot OpenShift operator issues
+- `/cluster-health` - Check overall OpenShift cluster health
+
+**Example:**
+```bash
+# Quick cluster health check
+/cluster-health
+
+# Start debugging a cluster issue
+/debug-cluster
+
+# Plan an upgrade
+/upgrade-cluster
+```
+
 ## Skills Structure
 
 ```
 openshift-ops/
 ├── README.md
+├── .claude-code/
+│   └── commands/
+│       ├── debug-cluster.md
+│       ├── upgrade-cluster.md
+│       ├── node-ops.md
+│       ├── debug-operator.md
+│       └── cluster-health.md
 └── skills/
     ├── openshift-debugging/
     │   └── SKILL.md
@@ -200,93 +219,22 @@ The skills are designed to work together:
 # Claude will use openshift-node-operations + openshift-debugging
 ```
 
-## Troubleshooting the Plugin
+## Troubleshooting
 
-If skills aren't being invoked:
+If skills or commands aren't working:
 1. Verify plugin is installed: `/plugin list`
-2. Restart Claude Code
-3. Check skill descriptions match your query
-4. Try explicitly requesting the skill by name
+2. Check available skills: `/skill list`
+3. Try explicitly requesting the skill by name or using slash commands
+4. Ensure `oc` CLI is installed and configured
 
 ## Contributing
 
-To add new skills or enhance existing ones:
+Contributions are welcome! To enhance this plugin:
 
-1. Create a new skill directory under `skills/`
-2. Add `SKILL.md` with proper frontmatter:
-   ```yaml
-   ---
-   name: skill-name
-   description: When and why to use this skill
-   ---
-   ```
-3. Follow the existing skill format and structure
-4. Test thoroughly before submitting
-
-## Version History
-
-- **v1.0.0** (2025-12-18): Initial release with four core skills
-  - openshift-debugging
-  - openshift-cluster-upgrade
-  - openshift-node-operations
-  - openshift-operator-troubleshooting
-
-## Publishing to Claude Code Marketplace
-
-### Prerequisites for Publishing
-
-1. Create a GitHub repository named `claude-code-plugin-openshift-ops`
-2. Ensure all files are committed and pushed
-3. Add proper tags for releases (e.g., `v1.0.0`)
-
-### Repository Structure for Marketplace
-
-```
-claude-plugins/
-└── openshift-ops/
-    ├── manifest.json          # Plugin metadata (✓ Created)
-    ├── README.md              # This file (✓ Created)
-    ├── LICENSE                # MIT License (✓ Created)
-    └── skills/                # Skill definitions
-        ├── openshift-debugging/
-        │   └── SKILL.md
-        ├── openshift-cluster-upgrade/
-        │   └── SKILL.md
-        ├── openshift-node-operations/
-        │   └── SKILL.md
-        └── openshift-operator-troubleshooting/
-            └── SKILL.md
-```
-
-### Steps to Publish
-
-1. **Create GitHub Repository**
-   ```bash
-   # Initialize git if not already done
-   git init
-   git add .
-   git commit -m "Initial commit: OpenShift Operations Plugin v1.0.0"
-
-   # Create repository on GitHub and push
-   git remote add origin https://github.com/eranco74/claude-plugins.git
-   git branch -M main
-   git push -u origin main
-
-   # Create a release tag
-   git tag -a openshift-ops-v1.0.0 -m "OpenShift Ops v1.0.0"
-   git push origin openshift-ops-v1.0.0
-   ```
-
-2. **Submit to Claude Code Marketplace**
-   - Create a pull request to the official Claude Code plugins repository
-   - Include link to your repository
-   - Provide description and use cases
-   - Wait for review and approval
-
-3. **Maintain the Plugin**
-   - Respond to issues and feedback
-   - Update skills based on user needs
-   - Release new versions with semantic versioning
+1. Fork the repository at https://github.com/eranco74/claude-plugins
+2. Make your changes in the `plugins/openshift-ops/` directory
+3. Test your changes thoroughly
+4. Submit a pull request with a clear description of improvements
 
 ## License
 

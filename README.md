@@ -14,7 +14,7 @@ Comprehensive Claude Code plugin providing expert-level skills for OpenShift clu
 **Version:** 1.0.0
 **Installation:**
 ```bash
-claude plugin install eranco74/claude-plugins/openshift-ops
+/plugin marketplace add https://github.com/eranco74/claude-plugins
 ```
 
 **Skills Included:**
@@ -23,20 +23,20 @@ claude plugin install eranco74/claude-plugins/openshift-ops
 - Node Operations - Manage node lifecycle, cordoning, draining, and maintenance
 - Operator Troubleshooting - Debug cluster operators, OLM, and subscription issues
 
-**[Documentation →](openshift-ops/README.md)**
+**[Documentation →](plugins/openshift-ops/README.md)**
 
 ---
 
 ## Installation
 
-### Install a Specific Plugin
+### Install from Marketplace
 
 ```bash
-# Install the OpenShift Operations plugin
-claude plugin install eranco74/claude-plugins/openshift-ops
+# Add the plugin repository to Claude Code
+/plugin marketplace add https://github.com/eranco74/claude-plugins
 
 # Verify installation
-claude plugin list
+/plugin list
 ```
 
 ### Install from Local Development
@@ -44,10 +44,10 @@ claude plugin list
 ```bash
 # Clone the repository
 git clone https://github.com/eranco74/claude-plugins.git
-cd claude-plugins
+cd claude-plugins/plugins/openshift-ops
 
-# Install a specific plugin
-claude plugin install ./openshift-ops
+# Install locally
+/plugin install .
 ```
 
 ## Repository Structure
@@ -55,18 +55,21 @@ claude plugin install ./openshift-ops
 ```
 claude-plugins/
 ├── README.md                    # This file
-├── openshift-ops/              # OpenShift Operations Plugin
-│   ├── manifest.json
-│   ├── marketplace.json
-│   ├── README.md
-│   ├── PUBLISHING.md
-│   ├── LICENSE
-│   └── skills/
-│       ├── openshift-debugging/
-│       ├── openshift-cluster-upgrade/
-│       ├── openshift-node-operations/
-│       └── openshift-operator-troubleshooting/
-└── [future-plugins]/           # Additional plugins will go here
+├── .claude-plugin/
+│   └── marketplace.json        # Repository marketplace metadata
+└── plugins/                    # Plugin directory
+    ├── openshift-ops/          # OpenShift Operations Plugin
+    │   ├── manifest.json
+    │   ├── marketplace.json
+    │   ├── README.md
+    │   ├── PUBLISHING.md
+    │   ├── LICENSE
+    │   └── skills/
+    │       ├── openshift-debugging/
+    │       ├── openshift-cluster-upgrade/
+    │       ├── openshift-node-operations/
+    │       └── openshift-operator-troubleshooting/
+    └── [future-plugins]/       # Additional plugins will go here
 ```
 
 ## Contributing
