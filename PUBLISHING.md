@@ -114,9 +114,9 @@ git log
 gh auth login
 
 # Create repository
-gh repo create claude-code-plugin-openshift-ops \
+gh repo create claude-plugins \
   --public \
-  --description "Comprehensive Claude Code plugin for OpenShift cluster management, troubleshooting, and operations" \
+  --description "Collection of Claude Code plugins for various operations and workflows" \
   --source=. \
   --remote=origin \
   --push
@@ -125,8 +125,8 @@ gh repo create claude-code-plugin-openshift-ops \
 ### Option B: Using GitHub Web Interface
 
 1. Go to https://github.com/new
-2. Repository name: `claude-code-plugin-openshift-ops`
-3. Description: "Comprehensive Claude Code plugin for OpenShift cluster management, troubleshooting, and operations"
+2. Repository name: `claude-plugins`
+3. Description: "Collection of Claude Code plugins for various operations and workflows"
 4. Public repository
 5. Do NOT initialize with README (we already have one)
 6. Click "Create repository"
@@ -135,7 +135,7 @@ Then push your local code:
 
 ```bash
 # Add remote
-git remote add origin https://github.com/eranco74/claude-code-plugin-openshift-ops.git
+git remote add origin https://github.com/eranco74/claude-plugins.git
 
 # Verify remote
 git remote -v
@@ -148,8 +148,8 @@ git push -u origin main
 ## Step 6: Create Release Tag
 
 ```bash
-# Create annotated tag
-git tag -a v1.0.0 -m "Release v1.0.0
+# Create annotated tag (prefix with plugin name for multi-plugin repo)
+git tag -a openshift-ops-v1.0.0 -m "OpenShift Ops v1.0.0
 
 Features:
 - OpenShift Debugging skill
@@ -160,7 +160,7 @@ Features:
 Initial release with comprehensive OpenShift operations support."
 
 # Push tag to GitHub
-git push origin v1.0.0
+git push origin openshift-ops-v1.0.0
 ```
 
 ## Step 7: Create GitHub Release
@@ -168,7 +168,7 @@ git push origin v1.0.0
 ### Using GitHub CLI
 
 ```bash
-gh release create v1.0.0 \
+gh release create openshift-ops-v1.0.0 \
   --title "OpenShift Operations Plugin v1.0.0" \
   --notes "Initial release with 4 core skills for OpenShift cluster management.
 
@@ -184,13 +184,13 @@ gh release create v1.0.0 \
 - Node lifecycle management
 - Operator diagnosis and remediation
 
-For installation and usage, see README.md"
+For installation and usage, see openshift-ops/README.md"
 ```
 
 ### Using GitHub Web Interface
 
-1. Go to https://github.com/eranco74/claude-code-plugin-openshift-ops/releases/new
-2. Tag: `v1.0.0`
+1. Go to https://github.com/eranco74/claude-plugins/releases/new
+2. Tag: `openshift-ops-v1.0.0`
 3. Release title: "OpenShift Operations Plugin v1.0.0"
 4. Add release notes (see above)
 5. Click "Publish release"
@@ -201,10 +201,10 @@ Test that others can install your plugin:
 
 ```bash
 # Install from GitHub
-claude plugin install eranco74/claude-code-plugin-openshift-ops
+claude plugin install eranco74/claude-plugins/openshift-ops
 
 # Or with specific version
-claude plugin install eranco74/claude-code-plugin-openshift-ops@v1.0.0
+claude plugin install eranco74/claude-plugins/openshift-ops@openshift-ops-v1.0.0
 
 # Verify installation
 claude plugin list
@@ -235,7 +235,7 @@ Example marketplace entry:
   "name": "openshift-ops",
   "displayName": "OpenShift Operations",
   "author": "Eran Cohen",
-  "repository": "https://github.com/eranco74/claude-code-plugin-openshift-ops",
+  "repository": "https://github.com/eranco74/claude-plugins",
   "description": "Comprehensive plugin for OpenShift cluster management, troubleshooting, and operations",
   "version": "1.0.0",
   "categories": ["DevOps", "Infrastructure", "SRE"],
@@ -262,9 +262,9 @@ gh repo edit --add-topic troubleshooting
 Add this to your README.md:
 
 ```markdown
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-purple)](https://github.com/eranco74/claude-code-plugin-openshift-ops)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-purple)](https://github.com/eranco74/claude-plugins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/github/v/release/eranco74/claude-code-plugin-openshift-ops)](https://github.com/eranco74/claude-code-plugin-openshift-ops/releases)
+[![Version](https://img.shields.io/github/v/tag/eranco74/claude-plugins?filter=openshift-ops-*)](https://github.com/eranco74/claude-plugins/releases)
 ```
 
 ### Share on Social Media / Communities
@@ -285,17 +285,17 @@ Add this to your README.md:
 
 # Commit changes
 git add .
-git commit -m "Update: Added new troubleshooting techniques"
+git commit -m "Update: Added new troubleshooting techniques to openshift-ops"
 
-# Create new version tag
-git tag -a v1.1.0 -m "Version 1.1.0 - Added new features"
+# Create new version tag (prefix with plugin name)
+git tag -a openshift-ops-v1.1.0 -m "OpenShift Ops v1.1.0 - Added new features"
 
 # Push changes and tag
 git push origin main
-git push origin v1.1.0
+git push origin openshift-ops-v1.1.0
 
 # Create new release
-gh release create v1.1.0 --title "v1.1.0" --notes "See CHANGELOG.md"
+gh release create openshift-ops-v1.1.0 --title "OpenShift Ops v1.1.0" --notes "See openshift-ops/CHANGELOG.md"
 ```
 
 ### Responding to Issues

@@ -76,11 +76,11 @@ Deep dive into operator issues including:
 
 ```bash
 # Install directly from GitHub (once published)
-claude plugin install eranco74/claude-code-plugin-openshift-ops
+claude plugin install eranco74/claude-plugins/openshift-ops
 
 # Or clone and install locally
-git clone https://github.com/eranco74/claude-code-plugin-openshift-ops.git
-cd claude-code-plugin-openshift-ops
+git clone https://github.com/eranco74/claude-plugins.git
+cd claude-plugins/openshift-ops
 claude plugin install .
 ```
 
@@ -242,19 +242,20 @@ To add new skills or enhance existing ones:
 ### Repository Structure for Marketplace
 
 ```
-claude-code-plugin-openshift-ops/
-├── manifest.json          # Plugin metadata (✓ Created)
-├── README.md              # This file (✓ Created)
-├── LICENSE                # MIT License (✓ Created)
-└── skills/                # Skill definitions
-    ├── openshift-debugging/
-    │   └── SKILL.md
-    ├── openshift-cluster-upgrade/
-    │   └── SKILL.md
-    ├── openshift-node-operations/
-    │   └── SKILL.md
-    └── openshift-operator-troubleshooting/
-        └── SKILL.md
+claude-plugins/
+└── openshift-ops/
+    ├── manifest.json          # Plugin metadata (✓ Created)
+    ├── README.md              # This file (✓ Created)
+    ├── LICENSE                # MIT License (✓ Created)
+    └── skills/                # Skill definitions
+        ├── openshift-debugging/
+        │   └── SKILL.md
+        ├── openshift-cluster-upgrade/
+        │   └── SKILL.md
+        ├── openshift-node-operations/
+        │   └── SKILL.md
+        └── openshift-operator-troubleshooting/
+            └── SKILL.md
 ```
 
 ### Steps to Publish
@@ -267,13 +268,13 @@ claude-code-plugin-openshift-ops/
    git commit -m "Initial commit: OpenShift Operations Plugin v1.0.0"
 
    # Create repository on GitHub and push
-   git remote add origin https://github.com/eranco74/claude-code-plugin-openshift-ops.git
+   git remote add origin https://github.com/eranco74/claude-plugins.git
    git branch -M main
    git push -u origin main
 
    # Create a release tag
-   git tag -a v1.0.0 -m "Version 1.0.0"
-   git push origin v1.0.0
+   git tag -a openshift-ops-v1.0.0 -m "OpenShift Ops v1.0.0"
+   git push origin openshift-ops-v1.0.0
    ```
 
 2. **Submit to Claude Code Marketplace**
