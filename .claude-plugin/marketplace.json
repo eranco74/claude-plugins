@@ -1,0 +1,47 @@
+{
+  "name": "eranco74-claude-plugins",
+  "displayName": "Eran's Claude Plugins",
+  "description": "Collection of Claude Code plugins for operations, troubleshooting, and workflow automation",
+  "author": "Eran Cohen",
+  "repository": "https://github.com/eranco74/claude-plugins",
+  "homepage": "https://github.com/eranco74/claude-plugins",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "openshift-ops",
+      "displayName": "OpenShift Operations",
+      "description": "Comprehensive plugin for OpenShift cluster management, troubleshooting, and operations",
+      "path": "openshift-ops",
+      "version": "1.0.0",
+      "categories": ["DevOps", "Infrastructure", "Platform Engineering", "SRE"],
+      "keywords": ["openshift", "kubernetes", "sre", "operations", "troubleshooting", "cluster-management", "red-hat"],
+      "license": "MIT",
+      "skills": [
+        {
+          "name": "openshift-debugging",
+          "description": "Comprehensive troubleshooting and debugging for OpenShift clusters"
+        },
+        {
+          "name": "openshift-cluster-upgrade",
+          "description": "Complete guide for planning, executing, and troubleshooting cluster upgrades"
+        },
+        {
+          "name": "openshift-node-operations",
+          "description": "Node lifecycle management including cordoning, draining, and machine management"
+        },
+        {
+          "name": "openshift-operator-troubleshooting",
+          "description": "Deep dive into operator issues including degradation, OLM failures, and subscription issues"
+        }
+      ],
+      "dependencies": {
+        "tools": {
+          "oc": {
+            "required": true,
+            "description": "OpenShift CLI tool"
+          }
+        }
+      }
+    }
+  ]
+}
