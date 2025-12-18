@@ -1,0 +1,74 @@
+{
+  "name": "openshift-ops",
+  "version": "1.0.0",
+  "description": "Comprehensive Claude Code plugin providing expert-level skills for OpenShift cluster management, troubleshooting, and operations",
+  "author": "Eran Cohen",
+  "homepage": "https://github.com/eranco74/claude-code-plugin-openshift-ops",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eranco74/claude-code-plugin-openshift-ops.git"
+  },
+  "keywords": [
+    "openshift",
+    "kubernetes",
+    "sre",
+    "operations",
+    "troubleshooting",
+    "cluster-management",
+    "red-hat"
+  ],
+  "skills": [
+    {
+      "name": "openshift-debugging",
+      "path": "skills/openshift-debugging/SKILL.md",
+      "description": "Comprehensive troubleshooting and debugging skill for OpenShift clusters including pods, nodes, operators, networking, and storage issues. Use when diagnosing cluster problems, investigating failed deployments, or resolving operational issues.",
+      "tags": ["debugging", "troubleshooting", "diagnostics"]
+    },
+    {
+      "name": "openshift-cluster-upgrade",
+      "path": "skills/openshift-cluster-upgrade/SKILL.md",
+      "description": "Complete guide for planning, executing, and troubleshooting OpenShift cluster upgrades including pre-checks, upgrade monitoring, and troubleshooting stuck upgrades. Use when upgrading clusters or investigating upgrade failures.",
+      "tags": ["upgrade", "maintenance", "operations"]
+    },
+    {
+      "name": "openshift-node-operations",
+      "path": "skills/openshift-node-operations/SKILL.md",
+      "description": "Node lifecycle management including adding/removing nodes, cordoning, draining, machine management, and node troubleshooting. Use when managing cluster capacity or performing node maintenance.",
+      "tags": ["nodes", "capacity", "maintenance"]
+    },
+    {
+      "name": "openshift-operator-troubleshooting",
+      "path": "skills/openshift-operator-troubleshooting/SKILL.md",
+      "description": "Deep dive into operator issues including cluster operator degradation, OLM failures, subscription issues, and operator upgrades. Use when operators are degraded, failing to install/upgrade, or causing cluster issues.",
+      "tags": ["operators", "olm", "troubleshooting"]
+    }
+  ],
+  "dependencies": {
+    "tools": {
+      "oc": {
+        "required": true,
+        "description": "OpenShift CLI tool",
+        "installUrl": "https://docs.openshift.com/container-platform/latest/cli_reference/openshift_cli/getting-started-cli.html"
+      },
+      "kubectl": {
+        "required": false,
+        "description": "Kubernetes CLI (alternative to oc)"
+      },
+      "jq": {
+        "required": false,
+        "description": "JSON processor for parsing command outputs"
+      }
+    }
+  },
+  "compatibility": {
+    "claude_code": ">=2.0.0",
+    "openshift": ">=4.10"
+  },
+  "license": "MIT",
+  "categories": [
+    "DevOps",
+    "Infrastructure",
+    "Platform Engineering",
+    "SRE"
+  ]
+}
