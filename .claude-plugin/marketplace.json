@@ -1,0 +1,26 @@
+{
+  "name": "ecosystem-claude-plugins",
+  "owner": {
+    "name": "eranco74"
+  },
+  "plugins": [
+    {
+      "name": "openshift-ops",
+      "source": "./plugins/openshift-ops",
+      "description": "Comprehensive Claude Code plugin providing expert-level skills for OpenShift cluster management, troubleshooting, and operations",
+      "version": "1.0.0",
+      "author": {
+        "name": "Eran Cohen"
+      }
+    },
+    {
+      "name": "jira",
+      "source": "./plugins/jira",
+      "description": "Manage Jira issues using jira-cli — create, search, update, and track work items",
+      "version": "0.1.0",
+      "author": {
+        "name": "Eran Cohen"
+      }
+    }
+  ]
+}
