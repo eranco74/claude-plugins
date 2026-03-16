@@ -19,8 +19,32 @@
     {
       "name": "jira-task-management",
       "path": "skills/jira-task-management/SKILL.md",
-      "description": "Manage Jira issues on Red Hat Jira (issues.redhat.com) using jira-cli. Use this skill whenever the user mentions Jira tickets, issues, bugs, tasks, epics, sprints, or wants to create/update/search work items. Also use when the user references MGMT-* issue keys, asks about task status, or wants to track work in the MGMT project.",
+      "description": "Manage Jira issues on Red Hat Jira (redhat.atlassian.net) using jira-cli. Use this skill whenever the user mentions Jira tickets, issues, bugs, tasks, epics, sprints, or wants to create/update/search work items. Also use when the user references issue keys like MGMT-*, NVIDIA-*, RHEL-*, asks about task status, or wants to track work.",
       "tags": ["jira", "tasks", "project-management"]
+    },
+    {
+      "name": "capture-tasks-from-meeting-notes",
+      "path": "skills/capture-tasks-from-meeting-notes/SKILL.md",
+      "description": "Analyze meeting notes to find action items and create Jira tasks for assigned work using jira-cli. Use when creating Jira tasks from meeting notes, extracting action items, or parsing notes for assigned tasks.",
+      "tags": ["jira", "meetings", "action-items", "task-creation"]
+    },
+    {
+      "name": "generate-status-report",
+      "path": "skills/generate-status-report/SKILL.md",
+      "description": "Generate project status reports from Jira issues using jira-cli. Use when creating status reports, summarizing project progress, generating weekly/daily reports, or analyzing blockers and completion.",
+      "tags": ["jira", "reporting", "status", "project-management"]
+    },
+    {
+      "name": "spec-to-backlog",
+      "path": "skills/spec-to-backlog/SKILL.md",
+      "description": "Transform specification documents into structured Jira backlogs using jira-cli. Use when creating Jira tickets from specs, breaking down features into implementation tasks, or creating epics with child tickets from design docs.",
+      "tags": ["jira", "backlog", "specs", "planning"]
+    },
+    {
+      "name": "triage-issue",
+      "path": "skills/triage-issue/SKILL.md",
+      "description": "Intelligently triage bug reports and error messages by searching for duplicates in Jira using jira-cli and offering to create new issues or add comments to existing ones. Use when triaging bugs, checking for duplicates, or creating well-structured bug reports.",
+      "tags": ["jira", "triage", "bugs", "duplicates"]
     }
   ],
   "dependencies": {

@@ -1,20 +1,20 @@
 ---
 name: jira-task-management
-description: Manage Jira issues on Red Hat Jira (issues.redhat.com) using jira-cli. Use this skill whenever the user mentions Jira tickets, issues, bugs, tasks, epics, sprints, or wants to create/update/search work items. Also use when the user references MGMT-* issue keys, asks about task status, or wants to track work in the MGMT project.
+description: Manage Jira issues on Red Hat Jira (redhat.atlassian.net) using jira-cli. Use this skill whenever the user mentions Jira tickets, issues, bugs, tasks, epics, sprints, or wants to create/update/search work items. Also use when the user references issue keys like MGMT-*, NVIDIA-*, RHEL-*, asks about task status, or wants to track work.
 ---
 
 # Jira Task Management
 
-Manage issues on Red Hat Jira (`issues.redhat.com`) via `jira-cli`. The tool is pre-configured with bearer token auth for the MGMT project.
+Manage issues on Red Hat Jira (`redhat.atlassian.net`) via `jira-cli`. The tool is pre-configured with bearer token auth for the MGMT project.
 
 ## Setup
 
 - **Binary:** `jira` (installed via `go install github.com/ankitpokhrel/jira-cli/cmd/jira@latest`)
-- **Config:** `~/.config/.jira/.config.yml` — initialized with `jira init --installation local --server https://issues.redhat.com --auth-type bearer`
-- **Auth:** Bearer token in `~/.netrc` (`machine issues.redhat.com login <user> password <token>`)
-- **Token generation:** https://issues.redhat.com → Profile → Personal Access Tokens
+- **Config:** `~/.config/.jira/.config.yml` — initialized with `jira init --installation cloud --server https://redhat.atlassian.net --auth-type bearer`
+- **Auth:** Bearer token in `~/.netrc` (`machine redhat.atlassian.net login <user> password <token>`)
+- **Token generation:** https://id.atlassian.com/manage-profile/security/api-tokens
 - **Default project:** MGMT
-- **Jira URL pattern:** `https://issues.redhat.com/browse/<KEY>`
+- **Jira URL pattern:** `https://redhat.atlassian.net/browse/<KEY>`
 
 ## Before Creating Issues
 
@@ -171,8 +171,8 @@ jira open           # Open project page
 
 ## Troubleshooting
 
-- **Auth errors / HTML in response:** Token may be expired. Regenerate at issues.redhat.com → Profile → Personal Access Tokens, update `~/.netrc`.
-- **"API v3" errors:** Config must use `installation: Local` (not Cloud). Re-run `jira init --installation local`.
+- **Auth errors / HTML in response:** Token may be expired. Regenerate at https://id.atlassian.com/manage-profile/security/api-tokens, update `~/.netrc`.
+- **"API v3" errors:** Config must use `installation: Cloud`. Re-run `jira init --installation cloud`.
 - **Interactive prompts hang:** Always pass `--no-input` for create/edit operations.
 - **`--debug` flag:** Shows the actual REST API calls — useful for diagnosing unexpected behavior.
 - **Current user:** `jira me` returns the authenticated username.
