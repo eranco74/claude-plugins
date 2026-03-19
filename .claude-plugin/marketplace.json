@@ -30,6 +30,15 @@
       "author": {
         "name": "Eran Cohen"
       }
+    },
+    {
+      "name": "daily-summary",
+      "source": "./plugins/daily-summary",
+      "description": "Generate daily status updates formatted for Slack from Jira, GitHub, and git activity",
+      "version": "1.0.0",
+      "author": {
+        "name": "Eran Cohen"
+      }
     }
   ]
 }
