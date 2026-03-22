@@ -39,6 +39,15 @@
       "author": {
         "name": "Eran Cohen"
       }
+    },
+    {
+      "name": "skill-scanner",
+      "source": "./plugins/skill-scanner",
+      "description": "Scan Claude Code plugins and skills for security vulnerabilities, prompt injection, and malicious instructions",
+      "version": "1.0.0",
+      "author": {
+        "name": "Eran Cohen"
+      }
     }
   ]
 }

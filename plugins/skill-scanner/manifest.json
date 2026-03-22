@@ -1,0 +1,43 @@
+{
+  "name": "skill-scanner",
+  "version": "1.0.0",
+  "description": "Scan Claude Code plugins and skills for security vulnerabilities, prompt injection, and malicious instructions",
+  "author": {
+    "name": "Eran Cohen"
+  },
+  "homepage": "https://github.com/eranco74/claude-plugins",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eranco74/claude-plugins.git"
+  },
+  "keywords": [
+    "security",
+    "scanner",
+    "vulnerability",
+    "skill-security",
+    "prompt-injection"
+  ],
+  "commands": [
+    {
+      "name": "scan-skills",
+      "path": ".claude-code/commands/scan-skills.md",
+      "description": "Scan installed plugins for security vulnerabilities"
+    }
+  ],
+  "skills": [
+    {
+      "name": "skill-scanner",
+      "path": "skills/skill-scanner/SKILL.md",
+      "description": "Scan installed Claude Code skills and plugins for security vulnerabilities and malicious instructions. Use whenever the user wants to check if a skill or plugin is safe, asks about skill security, says 'scan skills', 'scan plugins', 'is this skill safe', 'check for malicious skills', 'skill security', or wants to review what a third-party skill actually does before trusting it. Also trigger when the user installs a new plugin and wants to verify it, or says 'scan', 'audit', or 'security check' in the context of skills/plugins.",
+      "tags": ["security", "scanner", "vulnerability", "prompt-injection"]
+    }
+  ],
+  "compatibility": {
+    "claude_code": ">=2.0.0"
+  },
+  "license": "MIT",
+  "categories": [
+    "Security",
+    "Developer Tools"
+  ]
+}
