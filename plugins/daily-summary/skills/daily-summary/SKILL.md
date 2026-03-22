@@ -81,19 +81,17 @@ Classify each work item:
 
 ## Step 4: Format for Slack
 
-Slack uses its own "mrkdwn" format — NOT standard Markdown. Key differences:
+### Jira IDs as links
 
-- **Links**: Use Slack's native link syntax `<URL|display text>` to make text clickable. Do NOT use markdown `[text](url)` — Slack won't render it.
-- **Jira IDs as links**: Every Jira ticket key (e.g., `MGMT-1234`) must be a clickable link using `<https://issues.redhat.com/browse/MGMT-1234|MGMT-1234>`. This applies everywhere a Jira ID appears — epics, tickets, mentions in descriptions.
-- **PR links**: Use `<https://github.com/osac-project/repo/pull/123|repo#123>` for inline PR references, or put the full URL on its own line for Slack to auto-unfurl.
+Every Jira ticket key must be a clickable Slack link using `<https://issues.redhat.com/browse/MGMT-1234|MGMT-1234>`. This applies everywhere a Jira ID appears — epic headers, ticket references, and mentions in descriptions or risks. Do NOT use markdown link syntax `[text](url)` — Slack won't render it.
 
-Use these Slack emoji codes:
+### Emoji codes
+
 - `:rocket:` — section header for accomplishments
 - `:checked:` — completed item
-- `:merged2:` — PR merged
+- `:merged2:` — merged PR (prefix before PR URL)
 - `:review:` — PR awaiting review
 - `:in-progress:` — work in progress
-- `:typingcat:` — actively coding
 - `:person_climbing:` — section header for key effort
 - `:rotating_light:` — section header for risks
 
@@ -102,31 +100,37 @@ Use these Slack emoji codes:
 ```
 :rocket: Accomplishments
 
-<https://issues.redhat.com/browse/EPIC-KEY|EPIC-KEY>
-:checked: <https://issues.redhat.com/browse/TICKET-KEY|TICKET-KEY>: <Summary>
-<1-2 line description of what was done>
-:merged2: All PRs merged
-<PR URL on its own line>
+<https://issues.redhat.com/browse/EPIC-KEY|EPIC-KEY> (Epic Name)
+:checked: <https://issues.redhat.com/browse/TICKET-KEY|TICKET-KEY>: Summary of what was done, with brief inline description of the work completed.
+:merged2: https://github.com/osac-project/<repo>/pull/<number>
 
 :person_climbing: Key Effort
 
-<https://issues.redhat.com/browse/EPIC-KEY|EPIC-KEY>
-:in-progress: <https://issues.redhat.com/browse/TICKET-KEY|TICKET-KEY>: <Summary>
-<Brief status — what's done, what remains>
-:review: PR ready for review / :typingcat: Still coding
-<PR URL on its own line>
+<https://issues.redhat.com/browse/EPIC-KEY|EPIC-KEY> (Epic Name)
+:in-progress: <https://issues.redhat.com/browse/TICKET-KEY|TICKET-KEY>: Summary
+Brief inline description of progress — what's done, what remains.
+:review: PR ready for review:
+https://github.com/osac-project/<repo>/pull/<number>
 
 :rotating_light: Risks & Challenges
 
-<Any blockers or concerns, or "None — smooth sailing">
+None
 ```
+
+### Formatting details
+
+- **Epic header**: `<URL|EPIC-KEY> (Epic Name)` — key as Slack link, epic name in parentheses
+- **Ticket line**: starts with emoji (`:checked:`, `:in-progress:`), then `<URL|TICKET-KEY>: Summary`. Description follows inline or on the next line, kept to 1-2 lines.
+- **One ticket per line**: each ticket gets its own line — do not combine multiple tickets on a single line
+- **Merged PRs**: prefix the URL line with `:merged2:`
+- **Open PRs**: prefix with `:review:` followed by "PR ready for review:" or "PRs ready for review:", then URL(s) on following lines
+- **PR URLs**: always full URLs on their own lines: `https://github.com/osac-project/<repo>/pull/<number>`
 
 ## Rules
 
-- Group items under their parent Epic key
-- Make every Jira ID clickable using Slack link syntax: `<https://issues.redhat.com/browse/KEY|KEY>`
-- Include full GitHub PR URLs: `https://github.com/osac-project/<repo>/pull/<number>`
-- Never use markdown link syntax `[text](url)` — Slack won't render it. Use `<URL|text>` instead.
+- Group items under their parent Epic
+- Make every Jira ID a clickable Slack link: `<https://issues.redhat.com/browse/KEY|KEY>`
+- Include full GitHub PR URLs, prefixed with `:merged2:` for merged or `:review:` for open
 - Keep descriptions concise: 1-2 lines per item
 - If work isn't tracked in Jira, include it under the most relevant epic
 - If no work is found from automated sources, ask the user what they worked on before producing output
