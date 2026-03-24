@@ -49,8 +49,11 @@ Generate daily status updates formatted for Slack from Jira, GitHub, and git act
 
 OSAC development workflows: bug fix and bug reporting with Jira integration.
 
+**Agents:**
+- Fix Bug - Background agent that runs end-to-end: opens a Jira bug, writes the fix with tests, verifies build/format/tests pass, commits, posts a PR, and moves the ticket to Code Review
+
 **Skills Included:**
-- Fix Bug - End-to-end bug fix workflow — opens a Jira bug, writes the fix with tests, verifies build/format/tests pass, commits, posts a PR, and moves the ticket to Code Review
+- Fix Bug (launcher) - Gathers inputs and launches the fix-bug agent in the background
 - Report Bug - Report a bug in Jira without fixing it — creates a Bug ticket with proper description, links it to an epic, and assigns it
 
 ---
@@ -113,6 +116,8 @@ claude-plugins/
     └── osac-dev/               # OSAC Dev Workflows
         ├── manifest.json
         ├── .claude-code/commands/
+        ├── agents/
+        │   └── fix-bug.md
         └── skills/
             ├── fix-bug/
             └── report-bug/
